@@ -14,4 +14,6 @@ CREATE ROLE
 postgres=# create database example with owner dbuser;
 CREATE DATABASE
 postgres=# \q
-postgres@pc_name:/home/linux_user$ 
+postgres@pc_name:/home/linux_user$ exit
+linux_user@pc_name:~$
+

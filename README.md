@@ -17,3 +17,13 @@ postgres=# \q
 postgres@pc_name:/home/linux_user$ exit
 linux_user@pc_name:~$
 
+#django install
+linux_user@pc_name:~$ python3 -m pip install django
+
+
+#django create
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ ls
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ django-admin startproject example
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ ls
+example
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ 

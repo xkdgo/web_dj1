@@ -27,3 +27,6 @@ linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ django-admin s
 linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ ls
 example
 linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$ 
+
+
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django/example$ python3 manage.py runserver

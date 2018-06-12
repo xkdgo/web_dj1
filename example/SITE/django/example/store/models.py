@@ -8,6 +8,7 @@ class Tovar(models.Model):
     count = models.IntegerField(default=0)
     arrived = models.DateTimeField()
 
+    @property
     def full_title(self):
         return '{0.title} ({0.article})'.format(self)
 

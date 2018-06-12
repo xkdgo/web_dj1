@@ -36,3 +36,22 @@ linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$
 
 
 linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django/example$ python3 manage.py runserver
+
+python3 manage.py migrate
+python3 manage.py createsuperuser --username admin
+
+# добавляем новое приложение
+python3 manage.py startapp store
+
+# правим models
+# правим example/settings.py в части INSTALLED_APPS
+# создаем скрипт миграции
+python3 manage.py makemigrations store
+# смотрим какие правки в БД внесутся
+python3 manage.py sqlmigrate store 0001
+# применяем настройки
+python3 manage.py migrate
+
+
+uwsgi --socket example.sock --module example.wsgi-chmod-socket=666 --env DJANGO_SETTINGS_MODULE=example.settings --chdir ~/PycharmProjects/web_dj1/example/SITE/django/example
+

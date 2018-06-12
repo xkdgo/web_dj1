@@ -83,3 +83,13 @@ Out[9]: <QuerySet [<Tovar: Tovar object (1)>]>
 
 
 
+:~/PycharmProjects/web_dj1/example/SITE/django/example$ \
+uwsgi --socket example.sock \
+--module example.wsgi-chmod-socket=666 \
+--env DJANGO_SETTINGS_MODULE=example.settings \
+--chdir ~/PycharmProjects/web_dj1/example/SITE/django/example
+
+
+
+
+

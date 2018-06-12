@@ -9,5 +9,5 @@ class Tovar(models.Model):
     arrived = models.DateTimeField()
 
     def full_title(self):
-        return  '{0.title} ({0.article})'.format(self)
+        return '{0.title} ({0.article})'.format(self)
 

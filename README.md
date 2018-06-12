@@ -52,7 +52,12 @@ python3 manage.py sqlmigrate store 0001
 # применяем настройки
 python3 manage.py migrate
 
+sudo apt-get install libapache2-mod-wsgi-py3
+
+
+sudo python3 -m pip install uwsgi
 http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html#nginx-and-uwsgi-and-test-py
+
 
 uwsgi --socket example.sock --module example.wsgi-chmod-socket=666 --env DJANGO_SETTINGS_MODULE=example.settings --chdir ~/PycharmProjects/web_dj1/example/SITE/django/example
 

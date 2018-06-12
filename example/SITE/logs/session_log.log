@@ -1,0 +1,85 @@
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django/example$ python3 manage.py sqlmigrate store 0001
+BEGIN;
+--
+-- Create model Tovar
+--
+CREATE TABLE "store_tovar" ("id" serial NOT NULL PRIMARY KEY, "title" varchar(255) NOT NULL, "article" varchar(63) NOT NULL, "count" integer NOT NULL, "arrived" timestamp with time zone NOT NULL);
+COMMIT;
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django/example$ python3 manage.py migrateOperations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, store
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+  Applying store.0001_initial... OK
+linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django/example$ python3 manage.py dbshell
+
+psql (9.5.13)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+example=> \dt
+                  List of relations
+ Schema |            Name            | Type  | Owner  
+--------+----------------------------+-------+--------
+ public | auth_group                 | table | dbuser
+ public | auth_group_permissions     | table | dbuser
+ public | auth_permission            | table | dbuser
+ public | auth_user                  | table | dbuser
+ public | auth_user_groups           | table | dbuser
+ public | auth_user_user_permissions | table | dbuser
+ public | django_admin_log           | table | dbuser
+ public | django_content_type        | table | dbuser
+ public | django_migrations          | table | dbuser
+ public | django_session             | table | dbuser
+ public | store_tovar                | table | dbuser
+(11 rows)
+
+example=> \q
+
+python3 manage.py shell
+Python 3.6.5 (default, May  3 2018, 10:08:28)
+Type "copyright", "credits" or "license" for more information.
+
+IPython 2.4.1 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import store
+
+In [3]: T = store.models.Tovar(title='Утюг', article='11891', count=100, arrived=datetime.today()) 
+
+In [4]: T
+Out[4]: <Tovar: Tovar object (None)>
+
+In [5]: T.full_title()
+Out[5]: 'Утюг (11891)'
+
+In [6]: T.id
+
+In [7]: T.save()
+
+/home/linux_user/.local/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1423: RuntimeWarning: DateTimeField Tovar.arrived received a naive datetime (2018-06-12 10:02:24.424974) while time zone support is active.
+  RuntimeWarning)
+
+In [8]: T.id
+Out[8]: 1
+
+In [9]: store.models.Tovar.objects.all()
+Out[9]: <QuerySet [<Tovar: Tovar object (1)>]>
+
+
+

@@ -1,0 +1,14 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Список товаров</h1>
+
+        <ul>
+            {% for tovar in all_tovars %}
+            <li>{{ tovar.title }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+

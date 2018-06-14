@@ -12,3 +12,7 @@ class Tovar(models.Model):
     def full_title(self):
         return '{0.title} ({0.article})'.format(self)
 
+    def __str__(self):
+        return '({0.article}).{0.title}'.format(self)
+
+

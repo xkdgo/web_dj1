@@ -19,5 +19,6 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^tovar/', include('store.urls')),
+    url(r'^privet/', include('store.urls')),
     path('admin/', admin.site.urls),
 ]

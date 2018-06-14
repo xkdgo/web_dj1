@@ -25,7 +25,7 @@ SECRET_KEY = 'd9wroog-cfg=@6bbgh6elm4&s1yns2zhpk&+y)h@dwpkc=w(n$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['example.loc', ]#'*']
 
 
 # Application definition
@@ -136,3 +136,5 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, '..', '..', 'htdocs', 'static'))
 # указывает на папку example/SITE/htdocs/static
+# в nginx и apache2 указывается alias на абсолютный путь
+# после этого запускаем python3 manage.py collectstatic

@@ -37,6 +37,8 @@ linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django$
 
 linux_user@pc_name:~/PycharmProjects/web_dj1/example/SITE/django/example$ python3 manage.py runserver
 
+прописываются в settings.py настройки для БД
+
 python3 manage.py migrate
 python3 manage.py createsuperuser --username admin
 
@@ -52,12 +54,29 @@ python3 manage.py sqlmigrate store 0001
 # применяем настройки
 python3 manage.py migrate
 
+добавляются в urls.py ссылка на store
+
 sudo apt-get install libapache2-mod-wsgi-py3
 
-
+Настройка nginx в связке с django
 sudo python3 -m pip install uwsgi
 http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html#nginx-and-uwsgi-and-test-py
 
 
-uwsgi --socket example.sock --module example.wsgi-chmod-socket=666 --env DJANGO_SETTINGS_MODULE=example.settings --chdir ~/PycharmProjects/web_dj1/example/SITE/django/example
+uwsgi --socket example.sock --module example.wsgi --chmod-socket=666 --env DJANGO_SETTINGS_MODULE=example.settings --chdir ~/PycharmProjects/web_dj1/example/SITE/django/example
+
+Правится settings.py в части static
+# указывает на папку example/SITE/htdocs/static
+# в nginx или apache2 указывается alias на абсолютный путь
+# после этого запускаем
+python3 manage.py collectstatic
+
+store/urls.py и store/views.py в части обработки request-ов
+
+# Добавляем класс Tovar в админку
+правка store/admin.py
+
+# для корректного отображения названий класса Tovar в админке
+# добавляется метод __str__ в классе Tovar файл store/models.py
+
 

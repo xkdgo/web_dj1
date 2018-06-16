@@ -3,12 +3,17 @@
     </head>
     <body>
         <h1>Список товаров</h1>
+        <table border="1">
 
-        <ul>
             {% for tovar in all_tovars %}
-            <li>{{ tovar.title }}</li>
+                <tr>
+                    <td>{{ tovar.article }}</td>
+                    <td>{{ tovar.title }}</td>
+                    <td>{{ tovar.count }}</td>
+                    <td><a href="{% url 'namespace_store:edit' tovar.id %}">Редактировать</a></td>
+                </tr>
             {% endfor %}
-        </ul>
+        </table>
     </body>
 </html>
 

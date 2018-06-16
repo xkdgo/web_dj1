@@ -1,0 +1,9 @@
+<html>
+    <head>
+        <title>({{tovar.article}}) {{tovar.title}}</title>
+    </head>
+    <body>
+    {{tovar.title}}
+    {{tovar.count}}
+    </body>
+</html>

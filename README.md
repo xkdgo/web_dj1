@@ -90,6 +90,8 @@ index.html
 # в глобальном файле urls ввели понятие namespace_store
 # описываем его в темплейте как ссылка на функцию  namespace_store:edit
 
+# в темплейте edit делается action с ссылкой на функцию save
+# описывается функция save в файле store/views.py
 
 
 

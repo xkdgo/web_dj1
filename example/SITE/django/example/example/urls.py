@@ -18,7 +18,9 @@ from django.urls import path
 from django.conf.urls import include, url
 
 urlpatterns = [
-    url(r'^tovar/', include('store.urls')),
+    url(r'^tovar/', include(('store.urls', 'namespace_store'), namespace='namespace_store')),
+    # по умолчанию в джанго неймспейс глобальный чтобы разлелять одинаковые имена в разных приложениях
+    # добавляется параметр namespace
     url(r'^privet/', include('store.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.urls import reverse
 from django.template import loader, RequestContext
 from .models import Tovar
+from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -38,8 +40,27 @@ def edit(request, id_tovar):
     return render(request, 'store/edit.html', locals())
 
 def save(request, id_tovar):
+    if request.method.upper() != 'POST':
+        raise Http404('Неверный метод запроса')
     tovar = get_object_or_404(Tovar, pk=id_tovar)
-    tovar.title = request.POST('title')
-    tovar.article = request.POST('article')
+    tovar.title = request.POST['title']
+    tovar.article = request.POST['article']
     tovar.count = int(request.POST['count'])
-    return HttpResponseRedirect(reversed('store:index'))
+    tovar.save()
+    return HttpResponseRedirect(reverse('namespace_store:index'))
+    # return HttpResponse('save {0}'.format(id_tovar))
+
+def new(request):
+    tovar = Tovar()
+    tovar.title = '?'
+    tovar.article = '?'
+    tovar.count = 0
+    tovar.arrived = datetime.today()
+    tovar.save()
+    return HttpResponseRedirect(reverse('namespace_store:edit', args=(tovar.id,)))
+
+def delete(request, id_tovar):
+    tovar = get_object_or_404(Tovar, pk=id_tovar)
+    tovar.delete()
+    return HttpResponseRedirect(reverse('namespace_store:index'))
+

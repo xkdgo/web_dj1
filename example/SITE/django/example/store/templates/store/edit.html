@@ -4,26 +4,28 @@
     </head>
     <body>
         <h2>({{tovar.article}}) {{tovar.title}}</h2>
-        <form action="{% url 'namespace_store:save' tovar.id %}" method="POST"></form>
-        <input type="hidden" name="id" value="{{tovar.id}}"/>
-            <table>
-                <tr>
-                    <td>Наименование</td>
-                    <td><input type="text" name="title" value="{{tovar.title}}"/></td>
-                </tr>
-                <tr>
-                    <td>Артикул</td>
-                    <td><input type="text" name="article" value="{{tovar.article}}"/></td>
-                </tr>
-                <tr>
-                    <td>Количество</td>
-                    <td><input type="text" name="count" value="{{tovar.count}}"/></td>
-                </tr>
-                <tr>
-                    <td>Дата прихода</td>
-                    <td><input type="text" name="arrived" value="{{tovar.arrived}}"/></td>
-                </tr>
-            </table>
-            <input type="submit" value="Готово"/>
+        <form action="{% url 'namespace_store:save' tovar.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{tovar.id}}"/>
+                <table>
+                    <tr>
+                        <td>Наименование</td>
+                        <td><input type="text" name="title" value="{{tovar.title}}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Артикул</td>
+                        <td><input type="text" name="article" value="{{tovar.article}}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Количество</td>
+                        <td><input type="text" name="count" value="{{tovar.count}}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Дата прихода</td>
+                        <td><input type="text" name="arrived" value="{{tovar.arrived}}"/></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Готово"/>
+            </form>
     </body>
 </html>

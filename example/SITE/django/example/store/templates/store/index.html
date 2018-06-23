@@ -3,6 +3,9 @@
     </head>
     <body>
         <h1>Список товаров</h1>
+
+        <p><a href="{% url 'namespace_store:new' %}">Создать новый</a></p>
+
         <table border="1">
 
             {% for tovar in all_tovars %}
@@ -11,6 +14,7 @@
                     <td>{{ tovar.title }}</td>
                     <td>{{ tovar.count }}</td>
                     <td><a href="{% url 'namespace_store:edit' tovar.id %}">Редактировать</a></td>
+                    <td><a href="{% url 'namespace_store:delete' tovar.id %}">Удалить</a></td>
                 </tr>
             {% endfor %}
         </table>

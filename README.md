@@ -90,8 +90,19 @@ index.html
 # в глобальном файле urls ввели понятие namespace_store
 # описываем его в темплейте как ссылка на функцию  namespace_store:edit
 
-# в темплейте edit делается action с ссылкой на функцию save
+# в темплейте edit делается action с ссылкой на функцию save (namespace_store:save)
 # описывается функция save в файле store/views.py
+
+# в store.urls добавляем url new и delete - где сопоставляется ссылка url namespace_store:xxx
+# и функции views.xxx
+# в темплейте index делается  с ссылкой  a href на функцию new (namespace_store:new)
+# описывается функция new в файле store/views.py
+
+# в темплейте index делается  с ссылкой  a href на функцию delete (namespace_store:delete)
+# описывается функция delete в файле store/views.py
+
+
+
 
 
 

@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'new'                     , views.new, name='new'),
     url(r'(?P<id_tovar>\d+)/delete', views.delete, name='delete'),
 
+    url(r'groups', views.group_index, name='group_index'),
+
 ]

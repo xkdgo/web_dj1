@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.template import loader, RequestContext
-from .models import Tovar
+from .models import Tovar, Group
 from datetime import datetime
 
 # Create your views here.
@@ -63,4 +63,8 @@ def delete(request, id_tovar):
     tovar = get_object_or_404(Tovar, pk=id_tovar)
     tovar.delete()
     return HttpResponseRedirect(reverse('namespace_store:index'))
+
+def group_index(request):
+    all_groups = Group.objects.all()
+    return render(request, 'store/group_index.html', locals())
 

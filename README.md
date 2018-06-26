@@ -102,6 +102,60 @@ index.html
 # описывается функция delete в файле store/views.py
 
 
+# models.py переделываем в модуль models
+# models.py переименовываем в Tovar.py и помещаем в models
+# в models/__init.py__ делаем соответствующий импорт
+
+# создаются доп модели Group и Tag в файле models/Group.py
+# выполняется шаг миграции
+
+#migrations for Group and Tag:
+
+#python3 manage.py makemigrations
+Migrations for 'store':
+  store/migrations/0002_group_tag.py
+    - Create model Group
+    - Create model Tag
+
+
+# файл store/migrations/0002_group_tag.py обязательно просматривается глазами
+
+# После этого делается команда
+
+python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, store
+Running migrations:
+  Applying store.0002_group_tag... OK
+
+
+# В файле store/admin.py регистрируем модели
+
+# Через админ-панель добавляются записи в БД
+
+# создаем связи в модели Tovar на Group и Tag (ForeignKey и ManyToManyField)
+
+# Шаг makemigrations
+python3 manage.py makemigrations
+Migrations for 'store':
+  store/migrations/0003_auto_20180626_1927.py
+    - Add field group to tovar
+    - Add field tags to tovar
+
+
+# смотрим файл миграции глазами
+
+# применяем миграцию
+
+python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, store
+Running migrations:
+  Applying store.0003_auto_20180626_1927... OK
+
+
+
+
 
 
 

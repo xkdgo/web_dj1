@@ -60,6 +60,8 @@ object?   -> Details about 'object', use 'object??' for extra details.
 
 In [1]: import store
 
+
+
 In [3]: T = store.models.Tovar(title='Утюг', article='11891', count=100, arrived=datetime.today()) 
 
 In [4]: T
@@ -88,6 +90,35 @@ uwsgi --socket example.sock \
 --module example.wsgi-chmod-socket=666 \
 --env DJANGO_SETTINGS_MODULE=example.settings \
 --chdir ~/PycharmProjects/web_dj1/example/SITE/django/example
+
+python3 manage.py dbshell
+psql (9.5.13)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+example=> \dt
+                  List of relations
+ Schema |            Name            | Type  | Owner
+--------+----------------------------+-------+--------
+ public | auth_group                 | table | dbuser
+ public | auth_group_permissions     | table | dbuser
+ public | auth_permission            | table | dbuser
+ public | auth_user                  | table | dbuser
+ public | auth_user_groups           | table | dbuser
+ public | auth_user_user_permissions | table | dbuser
+ public | django_admin_log           | table | dbuser
+ public | django_content_type        | table | dbuser
+ public | django_migrations          | table | dbuser
+ public | django_session             | table | dbuser
+ public | store_group                | table | dbuser
+ public | store_tag                  | table | dbuser
+ public | store_tovar                | table | dbuser
+ public | store_tovar_tags           | table | dbuser
+(14 rows)
+
+example=> \q
+
+
 
 
 

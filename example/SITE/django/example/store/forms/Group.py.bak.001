@@ -1,0 +1,6 @@
+from django import forms
+
+class Group(forms.Form):
+    name = forms.CharField(label='Наименование', required=True)
+    comment = forms.CharField(label='комментарий по группе')
+

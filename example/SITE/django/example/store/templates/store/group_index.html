@@ -4,6 +4,7 @@
     <body>
         <h1>Список групп</h1>
 
+        <p><a href="{% url 'namespace_store:group_new' %}">Создать новую</a></p>
 
         <table border="1">
 
@@ -11,9 +12,10 @@
                 <tr>
                     <td>{{ group.code }}</td>
                     <td>{{ group.name }}</td>
+                    <td>{{ group.comment }}</td>
                     <td>{% if group.comment %}*{% endif %}</td>
-                    <td><a href="">Редактировать</a></td>
-                    <td><a href="">Удалить</a></td>
+                    <td><a href="{% url 'namespace_store:group_edit' group.id %}">Редактировать</a></td>
+                    <td><a href="{% url 'namespace_store:group_delete' group.id %}">Удалить</a></td>
                 </tr>
             {% endfor %}
     </body>

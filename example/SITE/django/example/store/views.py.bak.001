@@ -75,24 +75,18 @@ def group_new(request):
 
 @restful
 def group_edit(request, id_group):
-    group = get_object_or_404(Group, pk=id_group)
-    form = forms.Group(instance=group)
+    try:
+        group = Group.objects.get(pk=id_group)
+    except Group.DoesNotExist as Exc:
+        raise Http404('Группа не найдена') from Exc
+    form = forms.Group({'name': group.name, 'comment': group.comment})
+    form.comment = 'Комментарий формы'
     return render(request, 'store/group_edit.html', locals())
 
 @group_edit.add_handler('POST')
 def group_edit(request, id_group):
-    group = get_object_or_404(Group, pk=id_group)
-    form = forms.Group(request.POST, instance=group)
-    if form.is_valid():
-        form.save()
-        # Тут сохраняются данные в базу
-        return HttpResponseRedirect(reverse('namespace_store:group_index'))
-    else:
-        return render(request, 'store/group_edit.html', locals())
-    # raise NotImplementedError('group_edit (POST)')
-
+    raise NotImplementedError('group_edit (POST)')
 
 def group_delete(request, id_group):
-    group = get_object_or_404(Group, pk=id_group)
-    group.delete()
-    return HttpResponseRedirect(reverse('namespace_store:group_index'))
+    raise NotImplementedError('group_delete')
+

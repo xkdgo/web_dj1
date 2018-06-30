@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Группа</title>
+    </head>
+    <body>
+        <h2>Группа ???</h2>
+        <form method="POST">
+            {% csrf_token %}
+                <table>
+                   {{ form }}
+                </table>
+                <input type="submit" value="Готово"/>
+            </form>
+    </body>
+</html>

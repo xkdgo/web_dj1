@@ -153,6 +153,41 @@ Operations to perform:
 Running migrations:
   Applying store.0003_auto_20180626_1927... OK
 
+# создаем аналогичные представления для groups
+# правится файл urls.py
+    url(r'^groups$', views.group_index, name='group_index'),
+    url(r'^groups_new$', views.group_new, name='group_new'),
+    url(r'^(?P<id_group>\d+)/groups_edit$', views.group_edit, name='group_edit'),
+    url(r'^(?P<id_group>\d+)/groups_delete$', views.group_delete, name='group_delete'),
+# правится файл views.py
+   описываются соответствующие функции
+   views.group_index, views.group_new, views.group_edit, views.group_delete
+# создается файл store/templates/store/group_index.html
+   с необходимыми ссылками на нужные url
+
+# Создаем пакет store/forms
+# в нем описывается файл Group.py
+
+# В проекте создается вспомогательный пакет helpers
+# сюда будут складываться вспомогательные функции
+# создается вспомогательный класс restful который будет использоваться как декоратор
+
+# в store/views создается две функции group_edit
+# одна для метода GET другая для метода POST - реализуется что-то на подобие мультиметода с использованием
+# restful как декоратора для функции store/views/group_edit
+# функция передает параметры в шаблон store/group_edit.html
+
+# для отображения и запуска функций создается шаблон store/template/store/group_edit.html
+# в этом шаблоне принимаются параметры в виде {{ form }}
+
+# примеры с формами закончены и для фиксации как это работает переименовываются
+# store/views.py -> store/views.py.bak.001
+# store/forms/Group.py -> store/forms/Group.py.bak
+
+# Теперь рассматриваем форму модели
+# в файле store/forms/Group создается Meta класс
+# store/views.py правятся функции group_edit
+
 
 
 

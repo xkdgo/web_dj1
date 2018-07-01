@@ -55,6 +55,7 @@ def my_graph(request):
     f.savefig(buf, format='png')
     plt.close(f)
     response = HttpResponse(buf.getvalue(), content_type='image/png')
+    response['Content-Disposition'] = 'filename="data.png"'
 
     return response
 

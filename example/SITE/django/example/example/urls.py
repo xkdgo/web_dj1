@@ -23,4 +23,5 @@ urlpatterns = [
     # добавляется параметр namespace
     url(r'^privet/', include('store.urls')),
     path('admin/', admin.site.urls),
+    url(r'^gen/', include(('generators.urls', 'namespace_gen'), namespace='namespace_gen')),
 ]

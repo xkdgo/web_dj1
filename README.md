@@ -1,3 +1,14 @@
+#python3-pip install django
+#sudo python3 -m pip install psycopg2-binary
+# sudo python3 -m pip install psycopg2==2.7.1
+# sudo python3 -m pip install --upgrade psycopg2==2.7.1
+# sudo python3 -m pip install --upgrade psycopg2
+# sudo python3 -m pip install --upgrade --ignore-installed psycopg2
+# sudo apt-get install nginx
+
+
+
+
 # web_dj1
 Django project 1
 
@@ -188,6 +199,29 @@ Running migrations:
 # в файле store/forms/Group создается Meta класс
 # store/views.py правятся функции group_edit
 
+
+# 5
+# sudo apt-get install texlive
+# python3 -m pip install reportlab
+
+# python3 manage.py startapp generators
+# делаем функцию generators/views/ my_csv
+# регистрируем приложение в settings.py
+# INSTALLED_APPS добавляем 'generators'
+
+# в urls.py добавляем ссылку на generators
+# url(r'^gen/', include(('generators.urls', 'namespace_gen'), namespace='namespace_gen')),
+
+# в файле generators/urls.py создаем ссылку на my_csv из generators/views
+
+# то же самое для генерации pdf
+
+# 5.2
+
+# sudo python3 -m pip install matplotlib
+# sudo apt-get install python3-tk возможно этот пакет не нужен
+
+# то же самое для генерации png рисунка
 
 
 

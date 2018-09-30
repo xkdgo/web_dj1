@@ -1,3 +1,4 @@
+```
 #python3-pip install django
 #sudo python3 -m pip install psycopg2-binary
 # sudo python3 -m pip install psycopg2==2.7.1
@@ -223,10 +224,16 @@ Running migrations:
 
 # то же самое для генерации png рисунка
 
+# Для отображения формул качаем
+# https://sourceforge.net/projects/jsmath/files/jsMath/3.6e/
+# jsMath-3.6e.zip
 
+# https://sourceforge.net/projects/jsmath/files/jsMath%20Image%20Fonts/1.3/
+# jsMath-fonts-1.3.zip
 
+# Оба файла распаковываем в папку jsMath папку вручную помещаем в место где хранятся статические файлы приложения
 
+# создаем файл generators/templates/generators/formula.html
 
-
-
-
+# отмечаем в urls и в views
+```

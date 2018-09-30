@@ -129,6 +129,18 @@ Migrations for 'store':
     - Create model Group
     - Create model Tag
 
+#python3 manage.py sqlmigrate store 0002
+BEGIN;
+--
+-- Create model Group
+--
+CREATE TABLE "store_group" ("id" serial NOT NULL PRIMARY KEY, "code" varchar(3) NOT NULL, "name" varchar(255) NOT NULL, "comment" text NULL);
+--
+-- Create model Tag
+--
+CREATE TABLE "store_tag" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(64) NOT NULL, "deprecated" boolean NOT NULL);
+COMMIT;
+
 
 # файл store/migrations/0002_group_tag.py обязательно просматривается глазами
 
